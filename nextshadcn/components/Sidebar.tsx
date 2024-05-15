@@ -75,7 +75,7 @@ export default function Sidebar() {
             {menuList.map((menu: any, key: number )=> (
                 <CommandGroup key={key} heading={menu.group}>
                         {menu.items.map((option: any, optionsKey: number) => 
-                        <CommandItem key={optionsKey} className="flex gap-2 text-xs font-medium cursor-pointer">
+                        <CommandItem key={optionsKey} className="flex gap-3 p-2 text-xs font-medium cursor-pointer">
                             {option.icon}
                             {option.text}
                             </CommandItem>)}

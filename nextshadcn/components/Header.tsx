@@ -11,8 +11,6 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
 import { useState } from "react";
-import { read } from "fs";
-
 
 export default function Header() {
     const [notification, setNotification] = useState<any>([
@@ -34,16 +32,21 @@ export default function Header() {
         <div className="flex items-center justify-end">
         <DropdownMenu>
         <DropdownMenuTrigger >
-            <Button variant="outline" size="icon" className="mr-2">
+            <Button variant="outline" size="icon" className="relative">
+            <div className={`absolute -top-1 -right-1 h-3 w-3 rounded-full self-center
+                ${notification.find((x: any)=> x.read===true ) ? 'bg-green-500' : 'hidden'}`}>
+            </div>
              <Bell className="h-4 w-4"/>
             </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" >
+        <DropdownMenuContent align="end" > 
             {notification.map((item:any, key: number) => 
-            <DropdownMenuItem key={key} className="flex items-center justify-between gap-2 p-4 cursor-pointer hover:bg-neutral-50 transition">
+            <DropdownMenuItem key={key} className=" py-2 px-3 flex items-start gap-2 cursor-pointer hover:bg-neutral-50 transition">
+                <div className={`h-3 w-3 rounded-full self-center
+                ${item.read ? 'bg-green-500' : 'bg-neutral-200'}`}>
+                </div>
                 <p>{item.text}</p>
-                <p>{item.date}</p>
-                <span className="text-gray-500 font-light text-xs">{item.read ? 'Read' : 'Unread'}</span>
+                <p className="text-xs text-neutral-500 self-center">{item.date}</p>
             </DropdownMenuItem>)}
         </DropdownMenuContent>
         </DropdownMenu>
