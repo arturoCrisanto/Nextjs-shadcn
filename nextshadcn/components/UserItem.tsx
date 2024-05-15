@@ -1,3 +1,5 @@
+'use client'
+
 export default function UserItem() {
   return (
     <div className="flex items-center justify-between gap-3 border rounded-[8px] p-2">
