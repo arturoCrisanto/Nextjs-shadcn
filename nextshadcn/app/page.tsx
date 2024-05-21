@@ -1,12 +1,12 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button"
+
+import General from "@/components/Cards/General";
 
 
 
 export default function Home() {
   return (
-   <div>
-    home page
+   <div className="gap-2 p-3">
+    <General/>
    </div>
   );
 }
